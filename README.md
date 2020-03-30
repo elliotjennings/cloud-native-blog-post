@@ -15,29 +15,29 @@ There are many different reasons you might make the decision to implement a clou
 What were the goals of our project which made cloud-native a sensible design choice?
 
 #### 1. Use of the cloud
-  * Cost efficiency
+  * **Cost efficiency**
     * OpEx over CapEx
     * Scaling to fit needs rather than guessing
-  * Flexibility
+  * **Flexibility**
     * Choice of tools
     * Scalability (as above)
     * Professional hardening options
-  * Disaster recovery
+  * **Disaster recovery**
     * Helps deal with mitigating against downtime as well as the less likely but still possible emergency scenarios such as natural disaster
-  * Consistency and resilience
+  * **Consistency and resilience**
     * Automation removing human error
 
 #### 2. Speed and agility in development - in both services and delivery
-  * A loosely-coupled architecture
+  * **A loosely-coupled architecture**
     * The ability to break down the application into smaller, self-isolated systems, thus removing unnecessary dependencies across the application
     * Flexibility in stack for each service - use the best suited tools for the task in hand
-  * Constant interaction with the client to enable a fast feedback loop - utilise a DevOps focused continuous integration and continuous delivery pipeline for each section
+  * **Constant interaction with the client to enable a fast feedback loop** - utilise a DevOps focused continuous integration and continuous delivery pipeline for each section
     * This relationship between software development and DevOps caters to an iterative approach where design, build, test, deploy and deliver happen rapidly, frequently and more consistently
 
 #### 3. Packaging the code for a client
-  * Reusable APIs - what if they decided they also wanted a mobile app?
+  * **Reusable APIs** - what if they decided they also wanted a mobile app?
     * Same services, different wrapper
-  * Infrastructure as code - consistency in deployment and maintenance of the application as a whole
+  * **Infrastructure as code** - consistency in deployment and maintenance of the application as a whole
 
 These aspects shaped the way we wanted to approach the application, we wanted to take advantage of new technologies and more specifically, the cloud. This meant stepping away from a tried and tested monolithic development approach and moving to containers, microservices and automation. It is important to understand the relationship between these three concepts and how they can direct your delivery. It is the use of these technologies and processes, along with increased visibility through collaboration and telemetry across the whole development lifecycle that defines cloud-native - it's not just about being hosted on the cloud. By following these principles you can increase speed and agility in development, reduce deployment risks and exploit scalability.
 
@@ -53,9 +53,9 @@ As each service is independent of one another in a microservices architecture, t
 <p/>
 
 When talking about microservices you will often get the term Application Programming Interface, or API, thrown in for free. And I am doing no different, we supported the use of declarative APIs through RESTful HTTP to allow our services to communicate seamlessly whilst still being decoupled. This opened up the need for a single entry point for the front end to interact with multiple microservices. Kevin Hoffman, in his book Beyond the Twelve-Factor App, extends his 12 factors to deploying a portable and resilient web app. He adds 3 new key factors:
-* API First - all code in back end services will be consumed by a front-end client, gateway, or another service
-* Telemetry -	there is a large drop off in visibility when migrating from local to the cloud, so there must be stringent tracking and monitoring
-* Authentication/Authorization	- seems like an obvious addition, but all services should know who is making the request and whether their role allows them to do so
+* **API First** - all code in back end services will be consumed by a front-end client, gateway, or another service
+* **Telemetry** -	there is a large drop off in visibility when migrating from local to the cloud, so there must be stringent tracking and monitoring
+* **Authentication/Authorization** - seems like an obvious addition, but all services should know who is making the request and whether their role allows them to do so
 
 We choice to adopt AWS API Gateway Integrated with Cognito. While the client had its own Gateway in place, we chose this famous duo for our development cycle as it breaks down two often difficult but necessary aspects of integrating microservices:
   * Creating a single, unified entry point to the microservices behind it
@@ -95,20 +95,20 @@ The speed of reaction in terms of deployment, failover and scaling (to name a fe
 
 ## Some advantages of this approach
 The above sections outline the foundations of a cloud-native development approach. It is evident when going talking about microservices, containers and automation that their key advantages overlap, if not enhance one another. By implementing these three principles you can create something that is:
-  * Speed to market - isolation of services, breaking down barriers between development and deployment and efficient pipelines together form a formidable trio
-  * Able to respond to change - quick releases, quick feedback, quick improvements
-  * Reusable sections - each service is designed specifically for its role
-  * Cost-efficient - utilises the cost benefits of the cloud but also increases the efficiency in development and provisioning
-  * Reliable and repeatable - infrastructure as code
-  * Resilient -taking a telemetic focus to build for the unpredictable. An example is the use of containers orchestration.. spikes, lulls and downtime are all handled automatically
-  * Able to isolate failure - when hosting on the cloud it is inevitable there will failures, with the microservice architecture the failure is contained rather than having cascading affects
+  * **Speed to market** - isolation of services, breaking down barriers between development and deployment and efficient pipelines together form a formidable trio
+  * **Able to respond to change** - quick releases, quick feedback, quick improvements
+  * **Reusable sections** - each service is designed specifically for its role
+  * **Cost-efficient** - utilises the cost benefits of the cloud but also increases the efficiency in development and provisioning
+  * **Reliable and repeatable** - infrastructure as code
+  * **Resilient** - taking a telemetic focus to build for the unpredictable. An example is the use of containers orchestration.. spikes, lulls and downtime are all handled automatically
+  * **Able to isolate failure** - when hosting on the cloud it is inevitable there will failures, with the microservice architecture the failure is contained rather than having cascading affects
 
 These benefits of cloud-native are without a doubt appealing. While these are not individually unique to this approach, when they are all implemented together they are strengthened.
 
 However, even if you look at just one section of the design decision and focus on a microservice vs monolithic architecture, it is very use case specific. There is a trade off of simplicity, you get flexibility, reliability through isolation and ease of scalability but you lose out by also increasing complexity through distributed systems (including the testing), adding cross-cutting concerns and the potential of making bad cutting decisions. This is not a decision to make light of.
 
 <p align="center">
-  <img src="./images/distributedSystems.jpg" width="650" />
+  <img src="./images/distributedSystem.jpg" width="650" />
 <p/>
 
 As we have seen through this post, migrating to cloud-native does not simply mean wrapping up the monolithic, legacy code and placing it in the cloud. There is a strong emphasis on microservices, containers and automation as well as increasing visibility during the lifecycle through collaboration and telemetry. Through application of this approach you achieve speed and agility in development, reduced deployment risks and increased scalability. This is how it helped us be successful but it is not one size fits all.
