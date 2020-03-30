@@ -2,6 +2,8 @@
 
 At the beginning of 2019 I joined Deloitte from Makers Academy. Makers Academy is a 12 week coding bootcamp which aims to output a language agnostic developer through their focus on techniques and processes over languages and frameworks. While this set me up in the developer scope quite nicely, my first project was to fall under the cloud native development approach and therefore developing code was only part of the story.
 
+![Defining cloud-native](./images/cloudNativeDefinition.jpg)
+
 When first researching cloud native development I found I could open 10 different webpages, or speak to 10 different people and the responses would never be consistent. That being said, they would all have a common thread, they were a step away from the traditional articles you read about cloud computing advantages and would focus on visibility and the use of three key aspects; containers, microservices and automation (including container orchestration). This is because cloud native development isn't synonymous to the concept of the cloud. Instead, it is an extension, a foundation to success in the cloud. The outcome being speed and agility in development, reduced deployment risks and increased scalability.
 
 ## Our decision to follow a cloud-native approach
@@ -44,6 +46,8 @@ At it's heart, this is an architectural approach to splitting your services. One
 
 As each service is independent of one another in a microservices architecture, there are no restraints when designing each part of the application. You have a full choice of stack per service, meaning you can get the best out of each element. For instance, we used Python for the data science service, Node.JS for the data access layer. This abstraction from one another also increases the ability for independent controls for each service in the cloud (we will come back to this in the automation section).
 
+![Microservices vs Monolithic](./images/microservicesVsMonolithic.png)
+
 When talking about microservices you will often get the term Application Programming Interface, or API, thrown in for free. And I am doing no different, we supported the use of declarative APIs through RESTful HTTP to allow our services to communicate seamlessly whilst still being decoupled. This opened up the need for a single entry point for the front end to interact with multiple microservices. Kevin Hoffman, in his book Beyond the Twelve-Factor App, extends his 12 factors to deploying a portable and resilient web app. He adds 3 new key factors:
 * API First - all code in back end services will be consumed by a front-end client, gateway, or another service
 * Telemetry -	there is a large drop off in visibility when migrating from local to the cloud, so there must be stringent tracking and monitoring
@@ -62,6 +66,8 @@ This is in some ways the bridge between microservices and automation. In the mos
 
 Not only is it nice to have the flexibility to host containers either locally or on virtual machines, but it also gives the developer a realistic sandbox to play in - gone are the days you'd hear: "hmm, well it works fine on my machine!". The environment is predictable and consistent meaning the dev and test environments will slide into production with less management and debugging. This tries to redefine the relationship between developers and operations, moving towards a more collaborative interaction. By increasing the developers visibility of the environment that the production application will deploy to, it removes the worry of bugs appearing only when transferred to the cloud.  
 
+![dev vs ops to devops](./images/devVsOps.png)
+
 Containerisation, by including all the code and dependencies of the application, reduces the need for independent and complex deployment processes. Instead it becomes as simple as "run this container". This, along with the behavioural consistency between development and production environments allows CI/CD pipelines to be more simplistic and effective. This incorporates the aforementioned benefits of speed and agility in development through a quick feedback loop. This mitigates against configuration and integration issues and increases productivity of development by reallocating time to pushing features. The separation of services into containers supports the microservice architecture assisting in this quick development lifecycle.
 
 In terms of security, there is a great case for improvement through true isolation. If a service only interacts with itself then any attack on the other containers will have no impact. However, the issue arises when they have a common element, this is usually seen through the shared OS or shared application layer opening the door to attacks. This is mitigated against by using namespaces to limit access to certain resources, but is definitely food for thought.    
@@ -74,6 +80,8 @@ Automation has been an important part of software development for a while, with 
 There are a few issues with attempting to manually build this sort of infrastructure every time. First and foremost, it would fail to deliver at the speed required. Secondly, with every manual deployment there is a potential for discrepancies which will lead to a unique environment for that individual deployment - this is referred to as a snowflake. These days, with containerisation and virtual servers standardising environments there is no need for deployment discrepancies and has led to a practice called infrastructure as code (most commonly seen through Terraforming). This is where you code your infrastructure through templates to be able to rapidly deliver stable environments. These templates are scripted in a way that is human readable and machine consumable. This gives a developer the ability to spin up identical environments each time at the click of a button (or a push to a branch). It is fast and reliable.
 
 The idea of automation, including infrastructure as code, has been adopted through container orchestration and subsequent managed operators such as Kubernetes. By defining the desired state of your cluster, Kubernetes manages the lifecycle of your containers. This includes provisioning through rolling out new versions of the app and rolling back if there is an issue, networking, health checks, logging and scaling. When using containers running stateless microservices the ease to scale horizontally gives not only performance advantages but increases cost efficiency.
+
+![Kubernetes](./images/kubernetes.jpg)
 
 The speed of reaction in terms of deployment, failover and scaling (to name a few) is vital in cloud computing and the use of automation to assist these managed systems has changed the game.
 
@@ -90,5 +98,7 @@ The above sections outline the foundations of a cloud-native development approac
 These benefits of cloud-native are without a doubt appealing. While these are not individually unique to this approach, when they are all implemented together they are strengthened.
 
 However, even if you look at just one section of the design decision and focus on a microservice vs monolithic architecture, it is very use case specific. There is a trade off of simplicity, you get flexibility, reliability through isolation and ease of scalability but you lose out by also increasing complexity through distributed systems (including the testing), adding cross-cutting concerns and the potential of making bad cutting decisions. This is not a decision to make light of.
+
+![Proxy questions](./images/distributedSystems.jpg)
 
 As we have seen through this post, migrating to cloud-native does not simply mean wrapping up the monolithic, legacy code and placing it in the cloud. There is a strong emphasis on microservices, containers and automation as well as increasing visibility during the lifecycle through collaboration and telemetry. Through application of this approach you achieve speed and agility in development, reduced deployment risks and increased scalability. This is how it helped us be successful but it is not one size fits all.
