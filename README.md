@@ -94,14 +94,14 @@ The idea of automation, including infrastructure as code, has been adopted throu
 The speed of reaction in terms of deployment, failover and scaling (to name a few) is vital in cloud computing and the use of automation to assist these managed systems has changed the game.
 
 ## Some advantages of this approach
-The above sections outline the foundations of a cloud-native development approach. It is evident when going talking about microservices, containers and automation that their key advantages overlap, if not enhance one another. By implementing these three principles you can create something that is:
+The above sections outline the foundations of a cloud-native development approach. It is evident when talking about microservices, containers and automation that their key advantages overlap, if not enhance one another. By implementing these three principles you can create something that has:
   * **Speed to market** - isolation of services, breaking down barriers between development and deployment and efficient pipelines together form a formidable trio
-  * **Able to respond to change** - quick releases, quick feedback, quick improvements
+  * **The ability to respond to change** - quick releases, quick feedback, quick improvements
   * **Reusable sections** - each service is designed specifically for its role
-  * **Cost-efficient** - utilises the cost benefits of the cloud but also increases the efficiency in development and provisioning
-  * **Reliable and repeatable** - infrastructure as code
-  * **Resilient** - taking a telemetic focus to build for the unpredictable. An example is the use of containers orchestration.. spikes, lulls and downtime are all handled automatically
-  * **Able to isolate failure** - when hosting on the cloud it is inevitable there will failures, with the microservice architecture the failure is contained rather than having cascading affects
+  * **Cost-efficient output** - utilises the cost benefits of the cloud but also increases the efficiency in development and provisioning
+  * **Reliablity and repeatablity** - infrastructure as code
+  * **Resilience** - taking a telemetic focus to build for the unpredictable. An example is the use of containers orchestration.. spikes, lulls and downtime are all handled automatically
+  * **The ability to isolate failure** - when hosting on the cloud it is inevitable there will failures, with the microservice architecture the failure is contained rather than having cascading affects
 
 These benefits of cloud-native are without a doubt appealing. While these are not individually unique to this approach, when they are all implemented together they are strengthened.
 
